@@ -1,0 +1,45 @@
+$schema: "http://json-schema.org/draft/2020-12/schema"
+title: "VICC-ClinGen-Knowledge-Framework"
+type: object
+namespaces:
+  vrs: "https://raw.githubusercontent.com/ga4gh/vrs/1.2.0/schema/vrs.json#/definitions/"
+  vod: ""
+
+$defs:
+  Statement:
+    description: >-
+      A formal expression of a concept, a Statement is the superclass for any declarative statement.
+    oneOf:
+      - $ref: "#/$defs/Assertion"
+      - $ref: "#/$defs/EvidenceLine"
+      - $ref: "#/$defs/Evidence"
+
+  Assertion:
+    description: >-
+      A statement of purported truth, as made by a particular agent on a particular occasion, 
+      based on the evaluation of one or more lines of evidence.
+    oneOf:
+      - $ref: "#/$defs/DiseaseCausalityAssertion"
+    heritable_properties:
+      method:
+        $ref: "#/$defs/Method"
+        description: >-
+          The method used to evaluate the associated lines of evidence.
+      citations:
+        type: array
+        uniqueItems: true
+        items:
+          $ref: "#/$defs/Document"
+        description: >-
+          Documents indicated to support the assertion without corresponding evidence or 
+          evidence lines.
+      variation_descriptor:
+        $ref_curie: "vod:VariationDescriptor"
+
+
+    heritable_required:
+      - "method"
+      - "variation_descriptor"
+
+  DiseaseCausalityAssertion:
+    description: >-
