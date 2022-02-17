@@ -1,0 +1,70 @@
+GA4GH GKS Specification  v1
+
+Primitive Data Types
+  CURIE
+  Sequence String  (actual string of residues)
+
+Complex Data Types
+  - Composed Sequence  (? should these be identifiable or not?)
+    Sequence Expression
+    
+  - Interval  (DEPRECATED)  this is not needed.
+  
+Value Object Components  (identifiable types)
+  Strict value objects that can be identified computably
+  - Contextual Entities
+    - Sequence (CURIE digest of Sequence String)  <-- Refget defines this
+
+    - Location
+        Sequence Location
+            sequence interval gets rolled up into sequence location
+        Chromosome Location
+            cytoband interval gets rolled up into chromosome location
+
+    - Features    <-- SA + VR  
+    - Named Locations <-- SA + VR
+
+    - Variation  <-- this is built from VRS 1.2+   VR  
+      - Systemic
+          CNV   <-- This mixes SequenceExpression with identifiable items like Feature and MolecularVariation
+          Genotype
+      - Molecular
+          Allele
+          Sequence Junction  (per AHW)
+          Haplotype
+      - Utility
+          Variation Text
+
+  - Categorical Location  
+    - Complex Location
+    - Canonical Location
+
+  - Categorical Variation
+    - Complex Variation
+    - Canonical Variation
+    - Located Molecular Consquence Variation
+    - Funcation Consequence Variation
+    - Gene Fusions
+
+  - TODOs value object descriptors that need value objects....
+
+Value Object Descriptor Components  (VA, SA, VR , VRSATILE)
+  Exchange wrapper components
+  - 
+
+
+Annotation Components  (VA, SA)
+  Statements for knowledge and other complex results
+  - Proposition Types
+  - Clinically Significant Knowlegde
+  - Study Results
+
+  - Be careful when you decide to use a VO vs VOD. 
+
+
+Implementation Guides
+  Real world applications and use cases
+
+  
+  
+
